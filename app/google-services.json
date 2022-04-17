@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "202489564477",
+    "project_id": "marketplace-inc-c9bc3",
+    "storage_bucket": "marketplace-inc-c9bc3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:202489564477:android:a4d788119e26f42b4c0954",
+        "android_client_info": {
+          "package_name": "com.jamshidbek.marketplaceinc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "202489564477-5ckhveu064904e4inm7rp6a3t70vna8b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmb7VwZRhx0MgXqDKzehjTYU2GZ39IX3Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "202489564477-5ckhveu064904e4inm7rp6a3t70vna8b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
