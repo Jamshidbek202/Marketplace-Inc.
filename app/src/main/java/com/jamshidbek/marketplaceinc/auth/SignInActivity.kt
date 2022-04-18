@@ -3,46 +3,39 @@ package com.jamshidbek.marketplaceinc.auth
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.TestLooperManager
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.google.android.material.button.MaterialButton
 import com.jamshidbek.marketplaceinc.R
-import org.w3c.dom.Text
 
-class SignUpActivity : AppCompatActivity() {
+class SignInActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sign_up)
+        setContentView(R.layout.activity_sign_in)
 
+        var txt_signUp : TextView = findViewById(R.id.txt_signUp)
+        val btn_signIn : MaterialButton = findViewById(R.id.btn_signIn)
+        val edt_email : EditText = findViewById(R.id.edt_email_login)
+        val edt_password : EditText = findViewById(R.id.edt_password_login)
 
-        val txt_to_sign_in = findViewById<TextView>(R.id.txt_signIn)
-        val edt_email = findViewById<EditText>(R.id.edt_email_sign_up)
-        val edt_password = findViewById<EditText>(R.id.edt_password_sign_up)
-        val edt_password_repeat = findViewById<EditText>(R.id.edt_password_repeat)
-        val btn_signUp = findViewById<MaterialButton>(R.id.btn_signUp)
-
-
-        txt_to_sign_in.setOnClickListener {
-            val intent = Intent(this, SignInActivity::class.java)
+        txt_signUp.setOnClickListener{
+            val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
         }
 
-        btn_signUp.setOnClickListener {
+        btn_signIn.setOnClickListener {
             var txt_email = edt_email.text.toString()
             var txt_password = edt_password.text.toString()
-            var txt_password_again = edt_password_repeat.text.toString()
 
             if (txt_email != "" && android.util.Patterns.EMAIL_ADDRESS.matcher(txt_email).matches()){
-                if (txt_password != "" && txt_password.length > 8 && txt_password_again != "" && txt_password_again == txt_password){
+                if (txt_password != "" && txt_password.length > 8){
                     Toast.makeText(this, "Successful for now", Toast.LENGTH_SHORT).show()
                 } else{
-                    Toast.makeText(this, "Invalid password!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Your password is too short!", Toast.LENGTH_SHORT).show()
                     txt_password = ""
                     edt_password.setText(txt_password)
-                    txt_password_again = ""
-                    edt_password_repeat.setText(txt_password_again)
                 }
             } else {
                 Toast.makeText(this, "Invalid email!", Toast.LENGTH_SHORT).show()

@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ROG STRIX/AndroidStudioProjects/MarketplaceInc/app/src/main/res/drawable/button_style.xml" value="0.2355" />
+        <entry key="..\:/Users/ROG STRIX/AndroidStudioProjects/MarketplaceInc/app/src/main/res/drawable/edittext_style.xml" value="0.2355" />
         <entry key="..\:/Users/ROG STRIX/AndroidStudioProjects/MarketplaceInc/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/ROG STRIX/AndroidStudioProjects/MarketplaceInc/app/src/main/res/layout/activity_sign_in.xml" value="0.33" />
+        <entry key="..\:/Users/ROG STRIX/AndroidStudioProjects/MarketplaceInc/app/src/main/res/layout/activity_sign_up.xml" value="0.358695652173913" />
         <entry key="..\:/Users/ROG STRIX/AndroidStudioProjects/MarketplaceInc/app/src/main/res/layout/activity_splash_screen.xml" value="0.358695652173913" />
       </map>
     </option>

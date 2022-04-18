@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">Marketplace Inc.</string>
     <string name="reasonable_with_us">Reasonable with us!</string>
+    <string name="app_desc">Marketplace Inc. is a place where you can sell and buy what you want reasonably.</string>
+    <string name="sign_in">Sign In:</string>
+    <string name="e_mail">E-mail:</string>
+    <string name="password">Password:</string>
+    <string name="addition">The best shop system you know!</string>
+    <string name="sign_in_2">Sign in</string>
+    <string name="txt_to_sign_up">Don\'t have an account? Sign up <font color="#403DD1">here</font>.</string>
+    <string name="sign_up">Sign Up:</string>
+    <string name="repeat_your_password">Repeat your password:</string>
+    <string name="txt_to_sign_in">Already have an account? Sign in <font color="#403DD1">here</font>.</string>
+    <string name="sign_up_2">Sign up</string>
 </resources>

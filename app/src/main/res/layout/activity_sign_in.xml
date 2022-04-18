@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/main_gray"
-    tools:context=".auth.SignUpActivity">
+    tools:context=".auth.SignInActivity">
 
     <ImageView
         android:id="@+id/img_logo_1"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/_100sdp"
-        android:layout_marginTop="@dimen/_40sdp"
+        android:layout_marginTop="@dimen/_50sdp"
         android:src="@drawable/logo_cropped"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -32,12 +32,12 @@
         app:layout_constraintTop_toBottomOf="@id/img_logo_1" />
 
     <TextView
-        android:id="@+id/txt_signUp_ex"
+        android:id="@+id/txt_signIn_ex"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_20sdp"
         android:fontFamily="@font/montserrat_bold"
-        android:text="@string/sign_up"
+        android:text="@string/sign_in"
         android:textColor="@color/black"
         android:textSize="@dimen/_12ssp"
         android:textStyle="bold"
@@ -46,7 +46,7 @@
         app:layout_constraintTop_toBottomOf="@id/app_desc" />
 
     <EditText
-        android:id="@+id/edt_email_sign_up"
+        android:id="@+id/edt_email_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_30sdp"
@@ -60,14 +60,14 @@
         android:textColorHint="@color/gray_text"
         android:textSize="@dimen/_10sdp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/txt_signUp_ex" />
+        app:layout_constraintTop_toBottomOf="@id/txt_signIn_ex" />
 
     <EditText
-        android:id="@+id/edt_password_sign_up"
+        android:id="@+id/edt_password_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_30sdp"
-        android:layout_marginTop="@dimen/_13sdp"
+        android:layout_marginTop="@dimen/_20sdp"
         android:background="@drawable/edittext_style"
         android:elevation="@dimen/_5sdp"
         android:fontFamily="@font/montserrat_light"
@@ -77,49 +77,47 @@
         android:textColorHint="@color/gray_text"
         android:textSize="@dimen/_10sdp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/edt_email_sign_up" />
-
-    <EditText
-        android:id="@+id/edt_password_repeat"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_30sdp"
-        android:layout_marginTop="@dimen/_13sdp"
-        android:background="@drawable/edittext_style"
-        android:elevation="@dimen/_5sdp"
-        android:fontFamily="@font/montserrat_light"
-        android:hint="@string/repeat_your_password"
-        android:inputType="textPassword"
-        android:padding="@dimen/_10sdp"
-        android:textColorHint="@color/gray_text"
-        android:textSize="@dimen/_10sdp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/edt_password_sign_up" />
+        app:layout_constraintTop_toBottomOf="@id/edt_email_login" />
 
     <TextView
-        android:id="@+id/txt_signIn"
+        android:id="@+id/txt_addition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:fontFamily="@font/montserrat_light"
+        android:text="@string/addition"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/txt_signUp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_signUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_30sdp"
         android:layout_marginBottom="@dimen/_20sdp"
         android:fontFamily="@font/montserrat_light"
-        android:text="@string/txt_to_sign_in"
+        android:text="@string/txt_to_sign_up"
         android:textColor="@color/black"
         android:textSize="@dimen/_10sdp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/btn_signUp"
+        app:layout_constraintBottom_toTopOf="@id/btn_signIn"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_signUp"
+        android:id="@+id/btn_signIn"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_45sdp"
         android:layout_marginHorizontal="@dimen/_30sdp"
         android:layout_marginBottom="@dimen/_25sdp"
         android:backgroundTint="@color/black"
         android:fontFamily="@font/montserrat_light"
-        android:text="@string/sign_up_2"
+        android:text="@string/sign_in_2"
         android:textAllCaps="false"
         android:textSize="@dimen/_10sdp"
         android:textStyle="bold"
