@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/main_gray"
-    tools:context=".auth.SignUpActivity">
+    tools:context=".auth.UserDetailsActivity">
 
     <ImageView
-        android:id="@+id/img_logo_1"
+        android:id="@+id/img_logo_2"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/_100sdp"
         android:layout_marginTop="@dimen/_40sdp"
@@ -18,35 +18,21 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/app_desc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat_light"
-        android:gravity="center"
-        android:paddingHorizontal="@dimen/_40sdp"
-        android:text="@string/app_desc"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/img_logo_1" />
-
-    <TextView
-        android:id="@+id/txt_signUp_ex"
+        android:id="@+id/txt_page_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_20sdp"
         android:fontFamily="@font/montserrat_bold"
-        android:text="@string/sign_up"
+        android:text="@string/some_more_info_about_you"
         android:textColor="@color/black"
         android:textSize="@dimen/_12ssp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/app_desc" />
+        app:layout_constraintTop_toBottomOf="@id/img_logo_2" />
 
     <EditText
-        android:id="@+id/edt_email_sign_up"
+        android:id="@+id/edt_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_30sdp"
@@ -54,14 +40,15 @@
         android:background="@drawable/edittext_style"
         android:elevation="@dimen/_5sdp"
         android:fontFamily="@font/montserrat_light"
-        android:hint="@string/e_mail"
+        android:hint="@string/name"
+        android:importantForAutofill="no"
         android:inputType="textEmailAddress"
         android:minLines="1"
         android:padding="@dimen/_10sdp"
         android:textColorHint="@color/gray_text"
         android:textSize="@dimen/_10sdp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/txt_signUp_ex" />
+        app:layout_constraintTop_toBottomOf="@id/txt_page_title" />
 
     <EditText
         android:id="@+id/edt_surname"
@@ -72,18 +59,17 @@
         android:background="@drawable/edittext_style"
         android:elevation="@dimen/_5sdp"
         android:fontFamily="@font/montserrat_light"
-        android:hint="@string/password"
-
-        android:inputType="textPassword"
+        android:hint="@string/surname"
+        android:importantForAutofill="no"
         android:minLines="1"
         android:padding="@dimen/_10sdp"
         android:textColorHint="@color/gray_text"
         android:textSize="@dimen/_10sdp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/edt_email_sign_up" />
+        app:layout_constraintTop_toBottomOf="@id/edt_name" />
 
     <EditText
-        android:id="@+id/edt_password_repeat"
+        android:id="@+id/edt_phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_30sdp"
@@ -91,39 +77,62 @@
         android:background="@drawable/edittext_style"
         android:elevation="@dimen/_5sdp"
         android:fontFamily="@font/montserrat_light"
-        android:hint="@string/repeat_your_password"
-        android:inputType="textPassword"
+        android:hint="@string/phone_number"
+        android:importantForAutofill="no"
+        android:inputType="phone"
         android:minLines="1"
         android:padding="@dimen/_10sdp"
         android:textColorHint="@color/gray_text"
         android:textSize="@dimen/_10sdp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/edt_surname" />
+        app:layout_constraintTop_toBottomOf="@id/edt_surname"
+        tools:ignore="TextFields" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_13sdp"
+        android:elevation="@dimen/_5sdp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edt_phone">
+
+        <AutoCompleteTextView
+            android:id="@+id/dd_choose_region"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none"
+            android:text="@string/choose_your_city"
+            android:textColor="@color/black" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        android:id="@+id/txt_signIn"
+        android:id="@+id/txt_remark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_30sdp"
         android:layout_marginBottom="@dimen/_20sdp"
-        android:fontFamily="@font/montserrat_light"
-        android:text="@string/txt_to_sign_in"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/txt_remark"
         android:textColor="@color/black"
         android:textSize="@dimen/_10sdp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/btn_signUp"
+        app:layout_constraintBottom_toTopOf="@id/btn_finish"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_signUp"
+        android:id="@+id/btn_finish"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_45sdp"
         android:layout_marginHorizontal="@dimen/_30sdp"
         android:layout_marginBottom="@dimen/_25sdp"
         android:backgroundTint="@color/black"
         android:fontFamily="@font/montserrat_light"
-        android:text="@string/sign_up_2"
+        android:text="@string/finish"
         android:textAllCaps="false"
         android:textSize="@dimen/_10sdp"
         android:textStyle="bold"

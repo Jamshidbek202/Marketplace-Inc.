@@ -26,8 +26,8 @@ class SignInActivity : AppCompatActivity() {
         }
 
         btn_signIn.setOnClickListener {
-            var txt_email = edt_email.text.toString()
-            var txt_password = edt_password.text.toString()
+            var txt_email = edt_email.text.toString().trim()
+            var txt_password = edt_password.text.toString().trim()
 
             if (txt_email != "" && android.util.Patterns.EMAIL_ADDRESS.matcher(txt_email).matches()){
                 if (txt_password != "" && txt_password.length > 8){

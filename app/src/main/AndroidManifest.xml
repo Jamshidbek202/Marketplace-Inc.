@@ -10,13 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MarketplaceInc">
         <activity
+            android:name=".auth.UserDetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".auth.SignInActivity"
             android:exported="false"
-            android:screenOrientation="fullSensor"/>
+            android:screenOrientation="fullSensor" />
         <activity
             android:name=".auth.SignUpActivity"
             android:exported="false"
-            android:screenOrientation="fullSensor"/>
+            android:screenOrientation="fullSensor" />
         <activity
             android:name=".auth.SplashScreen"
             android:exported="true"
@@ -30,7 +33,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:screenOrientation="fullSensor"/>
+            android:screenOrientation="fullSensor" />
     </application>
 
 </manifest>

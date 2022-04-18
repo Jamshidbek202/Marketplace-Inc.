@@ -12,4 +12,34 @@
     <string name="repeat_your_password">Repeat your password:</string>
     <string name="txt_to_sign_in">Already have an account? Sign in <font color="#403DD1">here</font>.</string>
     <string name="sign_up_2">Sign up</string>
+    <string name="some_more_info_about_you">Some more info about you:</string>
+    <string name="name">Name:</string>
+    <string name="surname">Surname:</string>
+    <string name="phone_number">Phone Number:</string>
+    <string name="txt_remark">We value your time and money!</string>
+    <string name="choose_your_city">Choose your city:</string>
+    <string name="finish">Finish</string>
+
+    <string-array name="cities">
+
+        <item>Tashkent</item>
+        <item>Namangan</item>
+        <item>Samarkand</item>
+        <item>Andijan</item>
+        <item>Nukus</item>
+        <item>Fergana</item>
+        <item>Bukhara</item>
+        <item>Qarshi</item>
+        <item>Kokand</item>
+        <item>Margilan</item>
+        <item>Angren</item>
+        <item>Termez</item>
+        <item>Jizzakh</item>
+        <item>Chirchiq</item>
+        <item>Navoiy</item>
+        <item>Urgench</item>
+        <item>Shahrisabz</item>
+        <item>Olmaliq</item>
+
+    </string-array>
 </resources>
