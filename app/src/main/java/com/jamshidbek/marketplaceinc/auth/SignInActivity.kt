@@ -32,7 +32,7 @@ class SignInActivity : AppCompatActivity() {
             var txt_password = edt_password.text.toString().trim()
 
             if (txt_email != "" && android.util.Patterns.EMAIL_ADDRESS.matcher(txt_email).matches()){
-                if (txt_password != "" && txt_password.length > 8){
+                if (txt_password != "" && txt_password.length >= 8){
 
                     val auth = FirebaseAuth.getInstance()
 

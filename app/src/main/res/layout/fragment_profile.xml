@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_gray"
+    tools:context=".mainfragments.ProfileFragment">
+
+    <TextView
+        android:id="@+id/profile_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/your_profile"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_11ssp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/profile_pic_card"
+        android:layout_width="@dimen/_70sdp"
+        android:layout_height="@dimen/_70sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:backgroundTint="@color/middle_gray"
+        app:cardCornerRadius="@dimen/_35sdp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profile_title">
+
+        <ImageView
+            android:id="@+id/img_profile"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_default" />
+
+    </androidx.cardview.widget.CardView>
+
+    <ImageButton
+        android:id="@+id/btn_edit_profile"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:src="@drawable/ic_edit"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profile_title" />
+
+    <TextView
+        android:id="@+id/txt_profile_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:fontFamily="@font/montserrat_light"
+        android:maxLines="1"
+        android:text="Jamshidbek"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/txt_profile_surname"
+        app:layout_constraintLeft_toRightOf="@id/profile_pic_card"
+        app:layout_constraintTop_toBottomOf="@id/profile_title" />
+
+    <TextView
+        android:id="@+id/txt_profile_surname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:fontFamily="@font/montserrat_light"
+        android:maxLines="1"
+        android:text="Mamajonov"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/profile_pic_card"
+        app:layout_constraintLeft_toRightOf="@id/profile_pic_card"
+        app:layout_constraintTop_toBottomOf="@id/txt_profile_name" />
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="@color/text_gray"
+        app:layout_constraintTop_toBottomOf="@id/profile_pic_card" />
+
+    <LinearLayout
+        android:id="@+id/info_box"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/view1">
+
+        <TextView
+            android:id="@+id/txt_phone_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:fontFamily="@font/montserrat_light"
+            android:maxLines="1"
+            android:text="+998913267784"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/montserrat_light"
+            android:maxLines="1"
+            android:text="Ferghana"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_bio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/montserrat_light"
+            android:maxLines="1"
+            android:text="Programmer from Ferghana."
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="@color/text_gray"
+        app:layout_constraintTop_toBottomOf="@id/info_box" />
+
+    <LinearLayout
+        android:id="@+id/txt_settings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/view2">
+
+        <ImageView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:src="@drawable/ic_settings" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:fontFamily="@font/montserrat_light"
+            android:gravity="center_vertical"
+            android:text="@string/settings"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

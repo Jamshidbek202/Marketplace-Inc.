@@ -17,7 +17,6 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.jamshidbek.marketplaceinc.MainActivity
 import com.jamshidbek.marketplaceinc.R
-import com.jamshidbek.marketplaceinc.models.UserModel
 
 class UserDetailsActivity : AppCompatActivity() {
     @SuppressLint("CutPasteId")

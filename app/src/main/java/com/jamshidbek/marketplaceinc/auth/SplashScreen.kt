@@ -26,7 +26,6 @@ class SplashScreen : AppCompatActivity() {
         val auth = FirebaseAuth.getInstance()
         val user = auth.currentUser
 
-        Toast.makeText(this, ""+user.toString(), Toast.LENGTH_SHORT).show()
 
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -48,13 +47,13 @@ class SplashScreen : AppCompatActivity() {
                         val intent = Intent(this, SignInActivity::class.java)
                         startActivity(intent)
                         finish()
+                    } else {
+                        val intent = Intent(this, MainActivity::class.java)
+                        intent.putExtra("uid", user.uid)
+                        startActivity(intent)
+                        Toast.makeText(this@SplashScreen, "Logged in as: $name", Toast.LENGTH_SHORT).show()
+                        finish()
                     }
-
-                    val intent = Intent(this, MainActivity::class.java)
-                    intent.putExtra("uid", user.uid)
-                    startActivity(intent)
-                    Toast.makeText(this@SplashScreen, "Logged in as: $name", Toast.LENGTH_SHORT).show()
-                    finish()
                 }
             }
         }, 3000)

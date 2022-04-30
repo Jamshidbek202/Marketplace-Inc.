@@ -1,4 +1,4 @@
-package com.jamshidbek.marketplaceinc.models
+package com.jamshidbek.marketplaceinc.utils.models
 
 class UserModel {
 

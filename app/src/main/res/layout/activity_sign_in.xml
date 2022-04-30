@@ -58,7 +58,7 @@
         android:inputType="textEmailAddress"
         android:minLines="1"
         android:padding="@dimen/_10sdp"
-        android:textColorHint="@color/gray_text"
+        android:textColorHint="@color/text_gray"
         android:textSize="@dimen/_10sdp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/txt_signIn_ex" />
@@ -76,7 +76,7 @@
         android:inputType="textPassword"
         android:minLines="1"
         android:padding="@dimen/_10sdp"
-        android:textColorHint="@color/gray_text"
+        android:textColorHint="@color/text_gray"
         android:textSize="@dimen/_10sdp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/edt_email_login" />

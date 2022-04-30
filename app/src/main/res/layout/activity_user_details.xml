@@ -45,7 +45,7 @@
         android:inputType="textEmailAddress"
         android:minLines="1"
         android:padding="@dimen/_10sdp"
-        android:textColorHint="@color/gray_text"
+        android:textColorHint="@color/text_gray"
         android:textSize="@dimen/_10sdp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/txt_page_title" />
@@ -63,7 +63,7 @@
         android:importantForAutofill="no"
         android:minLines="1"
         android:padding="@dimen/_10sdp"
-        android:textColorHint="@color/gray_text"
+        android:textColorHint="@color/text_gray"
         android:textSize="@dimen/_10sdp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/edt_name" />
@@ -82,7 +82,7 @@
         android:inputType="phone"
         android:minLines="1"
         android:padding="@dimen/_10sdp"
-        android:textColorHint="@color/gray_text"
+        android:textColorHint="@color/text_gray"
         android:textSize="@dimen/_10sdp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/edt_surname"
