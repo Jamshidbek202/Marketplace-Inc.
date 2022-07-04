@@ -1,18 +1,21 @@
 package com.jamshidbek.marketplaceinc.auth
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
 import android.view.WindowManager
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.google.firebase.firestore.CollectionReference
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.SetOptions
 import com.jamshidbek.marketplaceinc.MainActivity
 import com.jamshidbek.marketplaceinc.R
+import com.jamshidbek.marketplaceinc.utils.models.UserModel
 
 class SplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,7 +28,8 @@ class SplashScreen : AppCompatActivity() {
 
         val auth = FirebaseAuth.getInstance()
         val user = auth.currentUser
-
+        val firestoreDatabase = FirebaseFirestore.getInstance()
+        var model = UserModel()
 
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -33,28 +37,32 @@ class SplashScreen : AppCompatActivity() {
         )
 
         Handler().postDelayed({
-            if (user == null){
+            if (user == null) {
                 val intent = Intent(this, SignInActivity::class.java)
                 startActivity(intent)
                 finish()
             } else {
-                val mDatabase = FirebaseDatabase.getInstance().getReference("Users")
+                val mDatabase = FirebaseDatabase.getInstance().getReference("Users").child(user.uid)
 
-                mDatabase.child(user.uid).child("name").get().addOnSuccessListener {
-                    val name = it.value.toString()
+                mDatabase.addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        model = snapshot.getValue(UserModel::class.java)!!
 
-                    if (name == null){
-                        val intent = Intent(this, SignInActivity::class.java)
-                        startActivity(intent)
-                        finish()
-                    } else {
-                        val intent = Intent(this, MainActivity::class.java)
+                        firestoreDatabase.collection("Users").document(user.uid).set(model, SetOptions.merge())
+
+                        val intent = Intent(applicationContext, MainActivity::class.java)
                         intent.putExtra("uid", user.uid)
                         startActivity(intent)
-                        Toast.makeText(this@SplashScreen, "Logged in as: $name", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@SplashScreen, "Logged in as: ${model.name}", Toast.LENGTH_SHORT)
+                            .show()
                         finish()
                     }
-                }
+
+                    override fun onCancelled(error: DatabaseError) {
+                        Toast.makeText(applicationContext, "" + error.message, Toast.LENGTH_SHORT)
+                            .show()
+                    }
+                })
             }
         }, 3000)
     }

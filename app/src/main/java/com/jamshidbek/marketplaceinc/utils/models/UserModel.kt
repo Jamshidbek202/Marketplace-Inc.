@@ -2,13 +2,13 @@ package com.jamshidbek.marketplaceinc.utils.models
 
 class UserModel {
 
-    var id : String = ""
-    var email : String = ""
-    var password : String = ""
-    var name : String = ""
-    var surname : String = ""
-    var phone : String = ""
     var city : String = ""
+    var email : String = ""
+    var name : String = ""
+    var password : String = ""
+    var phone : String = ""
+    var surname : String = ""
+    var uid : String = ""
 
     constructor(
         id: String,
@@ -19,7 +19,7 @@ class UserModel {
         phone: String,
         city: String
     ) {
-        this.id = id
+        this.uid = id
         this.email = email
         this.password = password
         this.name = name
@@ -27,4 +27,7 @@ class UserModel {
         this.phone = phone
         this.city = city
     }
+
+    constructor()
+
 }

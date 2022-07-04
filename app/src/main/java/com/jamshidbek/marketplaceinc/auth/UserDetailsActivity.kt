@@ -49,7 +49,6 @@ class UserDetailsActivity : AppCompatActivity() {
                     if (task.isSuccessful){
                         val firebaseUser : FirebaseUser = task.result!!.user!!
                         var uid = firebaseUser.uid
-//                        val userModel : UserModel = UserModel(uid, txt_email, txt_password, txt_name, txt_surname, txt_phone, txt_city)
 
                         val mDatabase = FirebaseDatabase.getInstance().getReference()
 
