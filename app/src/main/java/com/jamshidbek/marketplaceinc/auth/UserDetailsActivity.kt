@@ -15,14 +15,19 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.SetOptions
 import com.jamshidbek.marketplaceinc.MainActivity
 import com.jamshidbek.marketplaceinc.R
+import com.jamshidbek.marketplaceinc.utils.models.UserModel
 
 class UserDetailsActivity : AppCompatActivity() {
     @SuppressLint("CutPasteId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_details)
+
+        val firestoreDatabase = FirebaseFirestore.getInstance()
 
         val txt_email = intent.getStringExtra("email").toString()
         val txt_password = intent.getStringExtra("password").toString()
@@ -31,7 +36,6 @@ class UserDetailsActivity : AppCompatActivity() {
         val edt_surname = findViewById<EditText>(R.id.edt_surname)
         val edt_phone = findViewById<EditText>(R.id.edt_phone)
         val dd_city = findViewById<AutoCompleteTextView>(R.id.dd_choose_region)
-
         val cities = resources.getStringArray(R.array.cities)
         val arrayAdapter = ArrayAdapter(applicationContext, R.layout.drop_down_item, cities)
         val ddMenu = findViewById<AutoCompleteTextView>(R.id.dd_choose_region)
@@ -49,6 +53,9 @@ class UserDetailsActivity : AppCompatActivity() {
                     if (task.isSuccessful){
                         val firebaseUser : FirebaseUser = task.result!!.user!!
                         var uid = firebaseUser.uid
+                        var model = UserModel(uid, txt_email, txt_password, txt_name, txt_surname, txt_phone, txt_city)
+
+                        firestoreDatabase.collection("Users").document(uid).set(model, SetOptions.merge())
 
                         val mDatabase = FirebaseDatabase.getInstance().getReference()
 
