@@ -15,6 +15,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.jamshidbek.marketplaceinc.MainActivity
 import com.jamshidbek.marketplaceinc.R
+import com.jamshidbek.marketplaceinc.utils.docs.UserUID
 import com.jamshidbek.marketplaceinc.utils.models.UserModel
 
 class SplashScreen : AppCompatActivity() {
@@ -49,6 +50,7 @@ class SplashScreen : AppCompatActivity() {
                         model = snapshot.getValue(UserModel::class.java)!!
 
                         firestoreDatabase.collection("Users").document(user.uid).set(model, SetOptions.merge())
+                        UserUID.user_uid = model.uid
 
                         val intent = Intent(applicationContext, MainActivity::class.java)
                         intent.putExtra("uid", user.uid)

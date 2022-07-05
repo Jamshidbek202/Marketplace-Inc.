@@ -58,7 +58,7 @@
         android:layout_marginTop="@dimen/_15sdp"
         android:fontFamily="@font/montserrat_light"
         android:maxLines="1"
-        android:text="Jamshidbek"
+        android:text="Name"
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/txt_profile_surname"
@@ -72,7 +72,7 @@
         android:layout_marginStart="@dimen/_10sdp"
         android:fontFamily="@font/montserrat_light"
         android:maxLines="1"
-        android:text="Mamajonov"
+        android:text="Surname"
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@id/profile_pic_card"
@@ -104,7 +104,7 @@
             android:layout_marginStart="@dimen/_10sdp"
             android:fontFamily="@font/montserrat_light"
             android:maxLines="1"
-            android:text="+998913267784"
+            android:text="Phone number"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
@@ -116,19 +116,7 @@
             android:layout_marginTop="@dimen/_10sdp"
             android:fontFamily="@font/montserrat_light"
             android:maxLines="1"
-            android:text="Ferghana"
-            android:textColor="@color/black"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/txt_bio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:fontFamily="@font/montserrat_light"
-            android:maxLines="1"
-            android:text="Programmer from Ferghana."
+            android:text="City"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
