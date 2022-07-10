@@ -19,6 +19,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.jamshidbek.marketplaceinc.MainActivity
 import com.jamshidbek.marketplaceinc.R
+import com.jamshidbek.marketplaceinc.utils.docs.db.DBHelper
 import com.jamshidbek.marketplaceinc.utils.models.UserModel
 
 class UserDetailsActivity : AppCompatActivity() {
@@ -61,6 +62,7 @@ class UserDetailsActivity : AppCompatActivity() {
 
                         mDatabase.child("Users").child(uid).addListenerForSingleValueEvent(object : ValueEventListener{
                             override fun onDataChange(snapshot: DataSnapshot) {
+                                //writes to the online database
                                 snapshot.ref.child("uid").setValue(uid)
                                 snapshot.ref.child("email").setValue(txt_email)
                                 snapshot.ref.child("password").setValue(txt_password)
@@ -68,6 +70,12 @@ class UserDetailsActivity : AppCompatActivity() {
                                 snapshot.ref.child("surname").setValue(txt_surname)
                                 snapshot.ref.child("phone").setValue(txt_phone)
                                 snapshot.ref.child("city").setValue(txt_city)
+
+                                //writes to the offline database
+                                val model = UserModel(uid, txt_email, txt_password, txt_name, txt_surname, txt_phone, txt_city)
+                                val dbHelper = DBHelper(this@UserDetailsActivity)
+                                dbHelper.addData(model)
+                                Toast.makeText(this@UserDetailsActivity, "Data added to the database", Toast.LENGTH_SHORT).show()
 
                                 Toast.makeText(this@UserDetailsActivity, "Registered successfully!", Toast.LENGTH_SHORT).show()
                                 val intent = Intent(this@UserDetailsActivity, MainActivity::class.java)

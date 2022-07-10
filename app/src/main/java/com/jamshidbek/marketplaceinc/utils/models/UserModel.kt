@@ -11,7 +11,7 @@ class UserModel {
     var uid : String = ""
 
     constructor(
-        id: String,
+        uid: String,
         email: String,
         password: String,
         name: String,
@@ -19,7 +19,7 @@ class UserModel {
         phone: String,
         city: String
     ) {
-        this.uid = id
+        this.uid = uid
         this.email = email
         this.password = password
         this.name = name

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.firestore.FirebaseFirestore
@@ -20,6 +21,7 @@ class ProfileFragment : Fragment() {
     lateinit var surname : TextView
     lateinit var phone : TextView
     lateinit var city : TextView
+    lateinit var profile_image : ImageView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
