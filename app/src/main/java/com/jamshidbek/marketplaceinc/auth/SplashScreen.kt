@@ -22,9 +22,13 @@ import com.google.firebase.ktx.Firebase
 import com.jamshidbek.marketplaceinc.MainActivity
 import com.jamshidbek.marketplaceinc.R
 import com.jamshidbek.marketplaceinc.utils.docs.UserUID
+import com.jamshidbek.marketplaceinc.utils.docs.db.DBHelper
 import com.jamshidbek.marketplaceinc.utils.models.UserModel
 
 class SplashScreen : AppCompatActivity() {
+
+    var model = UserModel()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
@@ -40,7 +44,6 @@ class SplashScreen : AppCompatActivity() {
         val auth = FirebaseAuth.getInstance()
         val user = auth.currentUser
         val firestoreDatabase = FirebaseFirestore.getInstance()
-        var model = UserModel()
 
         Handler().postDelayed({
             if (user == null) {
@@ -49,28 +52,26 @@ class SplashScreen : AppCompatActivity() {
                 finish()
             } else {
                 if (isOnline(this)){
-                    val mDatabase = FirebaseDatabase.getInstance().getReference("Users").child(user.uid)
+                    //get the document
+                    firestoreDatabase.collection("Users").document(user.uid).get().addOnSuccessListener { document ->
+                        if (document != null){
+                            model = UserModel(document.get("uid").toString(), document.get("name").toString(), document.get("surname").toString(),
+                                document.get("phone").toString(), document.get("email").toString(), document.get("password").toString(), document.get("city").toString(), document.get("imgUrl").toString())
 
-                    mDatabase.addValueEventListener(object : ValueEventListener {
-                        override fun onDataChange(snapshot: DataSnapshot) {
-                            model = snapshot.getValue(UserModel::class.java)!!
-
-                            firestoreDatabase.collection("Users").document(user.uid).set(model, SetOptions.merge())
                             UserUID.user_uid = model.uid
 
-                            val intent = Intent(applicationContext, MainActivity::class.java)
-                            intent.putExtra("uid", user.uid)
-                            startActivity(intent)
-                            Toast.makeText(this@SplashScreen, "Logged in as: ${model.name}", Toast.LENGTH_SHORT)
-                                .show()
-                            finish()
+                            //update offline db
+                            val db = DBHelper(this)
+                            db.updateData(model)
                         }
+                    }.addOnFailureListener{exception ->
+                        Toast.makeText(this, ""+exception.message, Toast.LENGTH_SHORT).show()
+                    }
 
-                        override fun onCancelled(error: DatabaseError) {
-                            Toast.makeText(applicationContext, "" + error.message, Toast.LENGTH_SHORT)
-                                .show()
-                        }
-                    })
+                    val intent = Intent(applicationContext, MainActivity::class.java)
+                    intent.putExtra("uid", user.uid)
+                    startActivity(intent)
+                    finish()
                 } else {
                     Toast.makeText(this, "No connection", Toast.LENGTH_SHORT).show()
                     val intent = Intent(applicationContext, MainActivity::class.java)

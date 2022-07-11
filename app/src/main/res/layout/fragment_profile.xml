@@ -26,7 +26,6 @@
         android:layout_height="@dimen/_70sdp"
         android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_15sdp"
-        android:backgroundTint="@color/middle_gray"
         app:cardCornerRadius="@dimen/_35sdp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/profile_title">
@@ -35,8 +34,7 @@
             android:id="@+id/img_profile"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:src="@drawable/ic_default" />
+            android:scaleType="centerCrop"/>
 
     </androidx.cardview.widget.CardView>
 

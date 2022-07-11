@@ -14,4 +14,5 @@ object Constant {
     const val PASSWORD = "password"
     const val PHONE = "phone"
     const val CITY = "city"
+    const val IMG_URL = "imgUrl"
 }

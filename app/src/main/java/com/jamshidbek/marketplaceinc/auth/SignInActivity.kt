@@ -12,8 +12,10 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.firestore.FirebaseFirestore
 import com.jamshidbek.marketplaceinc.MainActivity
 import com.jamshidbek.marketplaceinc.R
+import com.jamshidbek.marketplaceinc.utils.docs.UserUID
 import com.jamshidbek.marketplaceinc.utils.docs.db.DBHelper
 import com.jamshidbek.marketplaceinc.utils.models.UserModel
 
@@ -45,8 +47,10 @@ class SignInActivity : AppCompatActivity() {
                     auth.signInWithEmailAndPassword(txt_email, txt_password).addOnCompleteListener { task ->
                         if (task.isSuccessful) {
                             startActivity(Intent(this, MainActivity::class.java))
+
                             //writes to the offline database
                             writeToDatabase()
+
                             Toast.makeText(this, "Logged in", Toast.LENGTH_SHORT).show()
                             finish()
                         }
@@ -69,24 +73,23 @@ class SignInActivity : AppCompatActivity() {
     }
 
     private fun writeToDatabase() {
+        val firestoreDatabase = FirebaseFirestore.getInstance()
         val uid = FirebaseAuth.getInstance().currentUser?.uid.toString()
+        var model = UserModel()
 
-        val mDatabase = FirebaseDatabase.getInstance().getReference("Users").child(uid)
+        firestoreDatabase.collection("Users").document(uid).get().addOnSuccessListener { document ->
+            if (document != null){
+                model = UserModel(document.get("uid").toString(), document.get("name").toString(), document.get("surname").toString(),
+                    document.get("phone").toString(), document.get("email").toString(), document.get("password").toString(), document.get("city").toString(), document.get("imgUrl").toString())
 
-        mDatabase.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                var model = UserModel()
-                model = snapshot.getValue(UserModel::class.java)!!
+                UserUID.user_uid = model.uid
 
-                val dbHelper = DBHelper(this@SignInActivity)
-                dbHelper.addData(model)
-                Toast.makeText(this@SignInActivity, "Data added to the database", Toast.LENGTH_SHORT).show()
+                //update offline db
+                val db = DBHelper(this)
+                db.updateData(model)
             }
-
-            override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(applicationContext, "" + error.message, Toast.LENGTH_SHORT)
-                    .show()
-            }
-        })
+        }.addOnFailureListener{exception ->
+            Toast.makeText(this, ""+exception.message, Toast.LENGTH_SHORT).show()
+        }
     }
 }

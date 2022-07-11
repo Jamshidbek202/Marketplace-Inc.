@@ -8,7 +8,7 @@ interface DBServiceInterface {
 
     fun deleteData(model: UserModel)
 
-    fun updateNote(model: UserModel) : Int
+    fun updateData(model: UserModel) : Int
 
-    fun getAllData() : ArrayList<UserModel>
+    fun getAllData() : UserModel
 }
