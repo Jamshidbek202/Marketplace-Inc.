@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/markeplace_navigation"
-    app:startDestination="@id/onSaleFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/searchFragment"
@@ -37,4 +37,21 @@
         android:name="com.jamshidbek.marketplaceinc.mainfragments.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/categoriesFragment"
+        android:name="com.jamshidbek.marketplaceinc.mainfragments.CategoriesFragment"
+        android:label="fragment_categories"
+        tools:layout="@layout/fragment_categories" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.jamshidbek.marketplaceinc.mainfragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.jamshidbek.marketplaceinc.mainfragments.EditProfileFragment"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile" />
+
 </navigation>

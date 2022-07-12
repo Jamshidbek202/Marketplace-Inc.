@@ -13,13 +13,15 @@
         <entry key="..\:/Users/ROG STRIX/AndroidStudioProjects/MarketplaceInc/app/src/main/res/layout/activity_splash_screen.xml" value="0.358695652173913" />
         <entry key="..\:/Users/ROG STRIX/AndroidStudioProjects/MarketplaceInc/app/src/main/res/layout/activity_user_details.xml" value="0.358695652173913" />
         <entry key="..\:/Users/ROG STRIX/AndroidStudioProjects/MarketplaceInc/app/src/main/res/layout/drop_down_item.xml" value="0.358695652173913" />
-        <entry key="..\:/Users/ROG STRIX/AndroidStudioProjects/MarketplaceInc/app/src/main/res/layout/fragment_add_to_sale.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/ROG STRIX/AndroidStudioProjects/MarketplaceInc/app/src/main/res/layout/fragment_add_to_sale.xml" value="0.25" />
         <entry key="..\:/Users/ROG STRIX/AndroidStudioProjects/MarketplaceInc/app/src/main/res/layout/fragment_cart.xml" value="0.358695652173913" />
         <entry key="..\:/Users/ROG STRIX/AndroidStudioProjects/MarketplaceInc/app/src/main/res/layout/fragment_categories.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/ROG STRIX/AndroidStudioProjects/MarketplaceInc/app/src/main/res/layout/fragment_edit_profile.xml" value="0.3692708333333333" />
+        <entry key="..\:/Users/ROG STRIX/AndroidStudioProjects/MarketplaceInc/app/src/main/res/layout/fragment_home.xml" value="0.3692708333333333" />
         <entry key="..\:/Users/ROG STRIX/AndroidStudioProjects/MarketplaceInc/app/src/main/res/layout/fragment_item.xml" value="0.358695652173913" />
         <entry key="..\:/Users/ROG STRIX/AndroidStudioProjects/MarketplaceInc/app/src/main/res/layout/fragment_items_in_category.xml" value="0.358695652173913" />
         <entry key="..\:/Users/ROG STRIX/AndroidStudioProjects/MarketplaceInc/app/src/main/res/layout/fragment_on_sale.xml" value="0.358695652173913" />
-        <entry key="..\:/Users/ROG STRIX/AndroidStudioProjects/MarketplaceInc/app/src/main/res/layout/fragment_profile.xml" value="0.67" />
+        <entry key="..\:/Users/ROG STRIX/AndroidStudioProjects/MarketplaceInc/app/src/main/res/layout/fragment_profile.xml" value="0.33" />
         <entry key="..\:/Users/ROG STRIX/AndroidStudioProjects/MarketplaceInc/app/src/main/res/layout/fragment_search.xml" value="0.22" />
         <entry key="..\:/Users/ROG STRIX/AndroidStudioProjects/MarketplaceInc/app/src/main/res/layout/sale_item_layout.xml" value="0.3692708333333333" />
         <entry key="..\:/Users/ROG STRIX/AndroidStudioProjects/MarketplaceInc/app/src/main/res/menu/main_menu.xml" value="0.3692708333333333" />

@@ -69,7 +69,6 @@ class SplashScreen : AppCompatActivity() {
                     }
 
                     val intent = Intent(applicationContext, MainActivity::class.java)
-                    intent.putExtra("uid", user.uid)
                     startActivity(intent)
                     finish()
                 } else {

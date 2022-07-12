@@ -8,7 +8,7 @@
     tools:context=".mainfragments.ProfileFragment">
 
     <TextView
-        android:id="@+id/profile_title"
+        android:id="@+id/edt_profile_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_20sdp"
@@ -21,35 +21,35 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/profile_pic_card"
+        android:id="@+id/edt_profile_pic_card"
         android:layout_width="@dimen/_70sdp"
         android:layout_height="@dimen/_70sdp"
         android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_15sdp"
         app:cardCornerRadius="@dimen/_35sdp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/profile_title">
+        app:layout_constraintTop_toBottomOf="@id/edt_profile_title">
 
         <ImageView
-            android:id="@+id/img_profile"
+            android:id="@+id/edt_img_profile"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"/>
 
     </androidx.cardview.widget.CardView>
 
-    <ImageButton
-        android:id="@+id/btn_edit_profile"
-        android:layout_width="@dimen/_25sdp"
-        android:layout_height="@dimen/_25sdp"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:layout_marginEnd="@dimen/_20sdp"
+    <ImageView
+        android:id="@+id/btn_edt_profile"
+        android:layout_width="@dimen/_17sdp"
+        android:layout_height="@dimen/_17sdp"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_marginEnd="@dimen/_30sdp"
         android:src="@drawable/ic_edit"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/profile_title" />
+        app:layout_constraintTop_toBottomOf="@id/edt_profile_title" />
 
     <TextView
-        android:id="@+id/txt_profile_name"
+        android:id="@+id/edt_txt_profile_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_10sdp"
@@ -59,12 +59,12 @@
         android:text="Name"
         android:textColor="@color/black"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/txt_profile_surname"
-        app:layout_constraintLeft_toRightOf="@id/profile_pic_card"
-        app:layout_constraintTop_toBottomOf="@id/profile_title" />
+        app:layout_constraintBottom_toTopOf="@id/edt_txt_profile_surname"
+        app:layout_constraintLeft_toRightOf="@id/edt_profile_pic_card"
+        app:layout_constraintTop_toBottomOf="@id/edt_profile_title" />
 
     <TextView
-        android:id="@+id/txt_profile_surname"
+        android:id="@+id/edt_txt_profile_surname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_10sdp"
@@ -73,9 +73,9 @@
         android:text="Surname"
         android:textColor="@color/black"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/profile_pic_card"
-        app:layout_constraintLeft_toRightOf="@id/profile_pic_card"
-        app:layout_constraintTop_toBottomOf="@id/txt_profile_name" />
+        app:layout_constraintBottom_toBottomOf="@id/edt_profile_pic_card"
+        app:layout_constraintLeft_toRightOf="@id/edt_profile_pic_card"
+        app:layout_constraintTop_toBottomOf="@id/edt_txt_profile_name" />
 
     <View
         android:id="@+id/view1"
@@ -84,7 +84,7 @@
         android:layout_marginHorizontal="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_20sdp"
         android:background="@color/text_gray"
-        app:layout_constraintTop_toBottomOf="@id/profile_pic_card" />
+        app:layout_constraintTop_toBottomOf="@id/edt_profile_pic_card" />
 
     <LinearLayout
         android:id="@+id/info_box"
@@ -96,7 +96,7 @@
         app:layout_constraintTop_toBottomOf="@id/view1">
 
         <TextView
-            android:id="@+id/txt_phone_number"
+            android:id="@+id/edt_txt_phone_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
@@ -107,7 +107,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/txt_city"
+            android:id="@+id/edt_txt_city"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
