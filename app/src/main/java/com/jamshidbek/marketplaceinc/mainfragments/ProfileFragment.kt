@@ -1,8 +1,12 @@
 package com.jamshidbek.marketplaceinc.mainfragments
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -59,13 +63,37 @@ class ProfileFragment : Fragment() {
             navOption.setPopExitAnim(R.anim.exit_anim)
             val bundle = bundleOf("something" to "something")
 
-            view.findNavController().navigate(R.id.editProfileFragment, bundle, navOption.build())
+            if(isOnline(container.context)){
+                view.findNavController().navigate(R.id.editProfileFragment, bundle, navOption.build())
+            } else {
+                Toast.makeText(context, "Please connect to the internet!", Toast.LENGTH_SHORT).show()
+            }
         }
 
         return view
     }
 
-
+    fun isOnline(context: Context): Boolean {
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        if (connectivityManager != null) {
+            val capabilities =
+                connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
+            if (capabilities != null) {
+                if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) {
+                    Log.i("Internet", "NetworkCapabilities.TRANSPORT_CELLULAR")
+                    return true
+                } else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) {
+                    Log.i("Internet", "NetworkCapabilities.TRANSPORT_WIFI")
+                    return true
+                } else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)) {
+                    Log.i("Internet", "NetworkCapabilities.TRANSPORT_ETHERNET")
+                    return true
+                }
+            }
+        }
+        return false
+    }
 
     private fun initialize(view: View) {
         name = view.findViewById(R.id.edt_txt_profile_name)

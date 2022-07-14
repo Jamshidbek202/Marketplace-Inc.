@@ -1,6 +1,7 @@
 package com.jamshidbek.marketplaceinc.mainfragments
 
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -30,8 +31,6 @@ class EditProfileFragment : Fragment() {
     lateinit var at_cities : AutoCompleteTextView
     lateinit var btn_update : ImageView
     lateinit var edit_photo : CardView
-    lateinit var edit_profile_pic : ImageView
-    lateinit var progressBar : ProgressBar
     lateinit var imgUrl : String
 
     var pressed = 0
@@ -70,7 +69,12 @@ class EditProfileFragment : Fragment() {
             model.name = edit_name.text.toString()
             model.surname = edit_surname.text.toString()
             model.phone = edit_phone.text.toString()
-            model.city = at_cities.text.toString()
+
+            if(at_cities.text.toString() == "Choose your city:"){
+
+            } else{
+                model.city = at_cities.text.toString()
+            }
 
             if(pressed == 0){
                 imgUrl = model.imgUrl
@@ -85,9 +89,8 @@ class EditProfileFragment : Fragment() {
             val navOption = NavOptions.Builder()
             navOption.setEnterAnim(R.anim.enter_anim)
             navOption.setPopExitAnim(R.anim.exit_anim)
-            val bundle = bundleOf("something" to "something")
 
-            view.findNavController().navigate(R.id.profileFragment, bundle, navOption.build())
+            view.findNavController().popBackStack()
         }
 
         return view
@@ -112,7 +115,13 @@ class EditProfileFragment : Fragment() {
             val storage = FirebaseStorage.getInstance()
             val storageRef = storage.reference
 
-            progressBar.isVisible = true
+            val view = View.inflate(context, R.layout.progress_layout, null)
+            val builder = AlertDialog.Builder(context)
+            builder.setView(view)
+            val dialog = builder.create()
+            dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+            dialog.show()
+
             storageRef.child("${UserUID.user_uid}/profilePic").putFile(filePath!!).addOnSuccessListener {
                     Toast.makeText(context, "Uploaded successfully.", Toast.LENGTH_SHORT).show()
 
@@ -120,7 +129,7 @@ class EditProfileFragment : Fragment() {
                         imgUrl = downloadUrl.toString()
                         val fdb = FirebaseFirestore.getInstance().collection("Users").document(UserUID.user_uid)
                         fdb.update("imgUrl", downloadUrl.toString())
-                        progressBar.isVisible = false
+                        dialog.dismiss()
                     }.addOnFailureListener { exception ->
                         Toast.makeText(context, "Exception: "+exception.message, Toast.LENGTH_SHORT).show()
                     }
@@ -137,6 +146,5 @@ class EditProfileFragment : Fragment() {
         at_cities = view.findViewById(R.id.edit_choose_city)
         btn_update = view.findViewById(R.id.btn_save_edit)
         edit_photo = view.findViewById(R.id.edit_profile_pic_card)
-        progressBar = view.findViewById(R.id.progressBar)
     }
 }
