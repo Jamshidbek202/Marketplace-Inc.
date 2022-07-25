@@ -21,7 +21,6 @@
     <string name="finish">Finish</string>
 
     <string-array name="cities">
-
         <item>Tashkent</item>
         <item>Namangan</item>
         <item>Samarkand</item>
@@ -40,8 +39,28 @@
         <item>Urgench</item>
         <item>Shahrisabz</item>
         <item>Olmaliq</item>
-
     </string-array>
+
+    <string-array name="categories">
+        <item>Food Products</item>
+        <item>Clothes</item>
+        <item>Home Appliances</item>
+        <item>Mobile Phones</item>
+        <item>PCs and Laptops</item>
+        <item>Books</item>
+        <item>Plants</item>
+        <item>Car Products</item>
+        <item>Office Products</item>
+        <item>Decorations</item>
+        <item>Cleaning Products</item>
+    </string-array>
+
+    <string-array name="currency">
+        <item>Sum</item>
+        <item>Dollars</item>
+        <item>Euros</item>
+    </string-array>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="your_profile">Your profile:</string>
@@ -65,4 +84,5 @@
     <string name="price">Price:</string>
     <string name="your_phone_number">Your phone number:</string>
     <string name="post">Post</string>
+    <string name="choose_your_category">Choose your category:</string>
 </resources>

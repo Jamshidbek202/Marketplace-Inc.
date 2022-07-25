@@ -95,6 +95,7 @@
         android:layout_marginHorizontal="@dimen/_30sdp"
         android:layout_marginTop="@dimen/_13sdp"
         android:elevation="@dimen/_5sdp"
+        app:boxBackgroundColor="@color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/edt_phone">
