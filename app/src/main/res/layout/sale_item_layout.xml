@@ -15,8 +15,8 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card_item_image"
-            android:layout_width="@dimen/_100sdp"
-            android:layout_height="@dimen/_100sdp"
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="@dimen/_90sdp"
             android:layout_margin="@dimen/_5sdp"
             app:cardCornerRadius="@dimen/_13sdp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -49,7 +49,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/txt_shop_name"
+            android:id="@+id/txt_seller_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/_10sdp"

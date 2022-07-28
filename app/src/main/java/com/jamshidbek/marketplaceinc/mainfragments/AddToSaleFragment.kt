@@ -22,6 +22,7 @@ import com.google.firebase.storage.FirebaseStorage
 import com.jamshidbek.marketplaceinc.R
 import com.jamshidbek.marketplaceinc.databinding.FragmentAddToSaleBinding
 import com.jamshidbek.marketplaceinc.utils.docs.UserUID
+import com.jamshidbek.marketplaceinc.utils.docs.db.DBHelper
 import com.jamshidbek.marketplaceinc.utils.models.ItemModel
 import java.net.URI
 
@@ -65,20 +66,12 @@ class AddToSaleFragment : Fragment() {
         }
 
         binding.btnPost.setOnClickListener {
-
             val view = View.inflate(context, R.layout.progress_layout, null)
             val builder = AlertDialog.Builder(context)
             builder.setView(view)
             val dialog = builder.create()
             dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
             dialog.show()
-
-            val name = binding.edtItemName.text.toString()
-            val desc = binding.edtItemDesc.text.toString()
-            val category = binding.edtCategory.text.toString()
-            val price = binding.edtItemPrice.text.toString() + " " + binding.actCurrency.text.toString()
-            val city = binding.actCity.text.toString()
-            val phone = binding.edtItemPhone.text.toString()
             var path = ""
 
             if (pressed == 0) {
@@ -86,6 +79,13 @@ class AddToSaleFragment : Fragment() {
                 Toast.makeText(context, "Please add an image!", Toast.LENGTH_SHORT).show()
                 dialog.dismiss()
             } else {
+                val name = binding.edtItemName.text.toString()
+                val desc = binding.edtItemDesc.text.toString()
+                val category = binding.edtCategory.text.toString()
+                val price = binding.edtItemPrice.text.toString()
+                val currency = binding.actCurrency.text.toString()
+                val city = binding.actCity.text.toString()
+                val phone = binding.edtItemPhone.text.toString()
 
                 if(binding.actCurrency.text.toString() == "" || name == "" || desc == "" || category == "Choose your category:" || price == "" || city == "Choose your city:" || phone == "" ){
                     Toast.makeText(context, "Fill in the info!", Toast.LENGTH_SHORT).show()
@@ -93,33 +93,38 @@ class AddToSaleFragment : Fragment() {
                 } else {
 
                     //upload to cloud
+                    val dbHelper = DBHelper(container!!.context)
+                    val seller = dbHelper.getAllData().name + " " + dbHelper.getAllData().surname
+
                     val storage = FirebaseStorage.getInstance()
                     val storageRef = storage.reference
 
                     storageRef.child("${UserUID.user_uid}/itemPics/${name}").putFile(filePath)
                         .addOnSuccessListener {
-                            Toast.makeText(context, "Uploaded successfully.", Toast.LENGTH_SHORT).show()
 
-                            path = storageRef.child("${UserUID.user_uid}/itemPics/${name}").downloadUrl.toString()
+                            storageRef.child("${UserUID.user_uid}/itemPics/${name}").downloadUrl.addOnSuccessListener { downloadUrl ->
+                                path = downloadUrl.toString()
 
-                            if (path == "") {
-                                Toast.makeText(context, "Image not added!", Toast.LENGTH_SHORT).show()
-                            } else {
-                                val model = ItemModel(UserUID.user_uid, name, path, desc, category, price, city, phone)
-                                val db = FirebaseFirestore.getInstance()
-                                db.collection("Users").document(UserUID.user_uid).collection("Products").document(name).set(model)
-                                Toast.makeText(context, "Products added!", Toast.LENGTH_SHORT).show()
-                                dialog.dismiss()
+                                if (path == "") {
+                                    Toast.makeText(context, "Image not added!", Toast.LENGTH_SHORT).show()
+                                } else {
+                                    val model = ItemModel(UserUID.user_uid, seller, name, path, desc, category, price, currency, city, phone)
+                                    val db = FirebaseFirestore.getInstance()
+                                    db.collection("OnSale").document(name).set(model)
+                                    db.collection("Users").document(UserUID.user_uid).collection("UsersProducts").document(name).set(model)
+                                    Toast.makeText(context, "Product added!", Toast.LENGTH_SHORT).show()
+                                    dialog.dismiss()
 
-                                //return to home
-                                binding.imgAddPicture.setImageResource(R.drawable.ic_add_image)
-                                binding.edtItemName.setText("")
-                                binding.edtItemDesc.setText("")
-                                binding.edtCategory.setText(R.string.choose_your_category)
-                                binding.edtItemPrice.setText("")
-                                binding.actCurrency.setText("")
-                                binding.actCity.setText(R.string.choose_your_city)
-                                binding.edtItemPhone.setText("")
+                                    //return to home
+                                    binding.imgAddPicture.setImageResource(R.drawable.ic_add_image)
+                                    binding.edtItemName.setText("")
+                                    binding.edtItemDesc.setText("")
+                                    binding.edtCategory.setText(R.string.choose_your_category)
+                                    binding.edtItemPrice.setText("")
+                                    binding.actCurrency.setText("")
+                                    binding.actCity.setText(R.string.choose_your_city)
+                                    binding.edtItemPhone.setText("")
+                                }
                             }
                         }
                         .addOnFailureListener {
