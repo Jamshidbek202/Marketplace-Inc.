@@ -19,8 +19,8 @@ import com.jamshidbek.marketplaceinc.utils.models.UserModel
 
 class OnSaleFragment : Fragment() {
 
-    lateinit var btn_categories : ImageView
-    lateinit var products_recycler : RecyclerView
+    lateinit var btn_categories: ImageView
+    lateinit var products_recycler: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,24 +36,26 @@ class OnSaleFragment : Fragment() {
         val firestore_db = FirebaseFirestore.getInstance()
         val productList = arrayListOf<ItemModel>()
 
-        firestore_db.collection("OnSale").addSnapshotListener(object : EventListener<QuerySnapshot>{
-            override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
+        firestore_db.collection("OnSale")
+            .addSnapshotListener(object : EventListener<QuerySnapshot> {
+                override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
 
-                if (error != null){
-                    Toast.makeText(context, ""+error.message.toString(), Toast.LENGTH_SHORT).show()
-                } else {
+                    if (error != null) {
+                        Toast.makeText(context, "" + error.message.toString(), Toast.LENGTH_SHORT)
+                            .show()
+                    } else {
 
-                    for (dc : DocumentChange in value?.documentChanges!!){
-                        if (dc.type == DocumentChange.Type.ADDED){
-                            productList.add(dc.document.toObject(ItemModel::class.java))
+                        for (dc: DocumentChange in value?.documentChanges!!) {
+                            if (dc.type == DocumentChange.Type.ADDED) {
+                                productList.add(dc.document.toObject(ItemModel::class.java))
+                            }
                         }
-                    }
 
-                    val adapter = OnSaleRecyclerAdapter(productList, container?.context!!)
-                    products_recycler.adapter = adapter
+                        val adapter = OnSaleRecyclerAdapter(productList, container?.context!!)
+                        products_recycler.adapter = adapter
+                    }
                 }
-            }
-        })
+            })
 
         btn_categories.setOnClickListener {
             val navOption = NavOptions.Builder()

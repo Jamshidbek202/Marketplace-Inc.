@@ -36,6 +36,7 @@ class ProfileFragment : Fragment() {
     lateinit var profile_image : ImageView
     lateinit var add_image_card : CardView
     lateinit var btnEdit : ImageView
+    lateinit var txt_posts : TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -68,6 +69,14 @@ class ProfileFragment : Fragment() {
             } else {
                 Toast.makeText(context, "Please connect to the internet!", Toast.LENGTH_SHORT).show()
             }
+        }
+
+        txt_posts.setOnClickListener{
+            val navOption = NavOptions.Builder()
+            navOption.setEnterAnim(R.anim.enter_anim)
+            navOption.setPopExitAnim(R.anim.exit_anim)
+            val bundle = bundleOf("something" to "something")
+            view.findNavController().navigate(R.id.userPostsFragment, bundle, navOption.build())
         }
 
         return view
@@ -103,5 +112,6 @@ class ProfileFragment : Fragment() {
         profile_image = view.findViewById(R.id.edt_img_profile)
         add_image_card = view.findViewById(R.id.edt_profile_pic_card)
         btnEdit = view.findViewById(R.id.btn_edt_profile)
+        txt_posts = view.findViewById(R.id.txt_my_posts)
     }
 }

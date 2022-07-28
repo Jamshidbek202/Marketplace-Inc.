@@ -58,5 +58,10 @@
         android:name="com.jamshidbek.marketplaceinc.mainfragments.ItemFragment"
         android:label="fragment_item"
         tools:layout="@layout/fragment_item" />
+    <fragment
+        android:id="@+id/userPostsFragment"
+        android:name="com.jamshidbek.marketplaceinc.mainfragments.UserPostsFragment"
+        android:label="fragment_user_posts"
+        tools:layout="@layout/fragment_user_posts" />
 
 </navigation>

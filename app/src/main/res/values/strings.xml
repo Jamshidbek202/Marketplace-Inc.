@@ -85,4 +85,7 @@
     <string name="your_phone_number">Your phone number:</string>
     <string name="post">Post</string>
     <string name="choose_your_category">Choose your category:</string>
+    <string name="your_posts">Your posts</string>
+    <string name="your_posts1">Your posts:</string>
+    <string name="you_don_t_have_any_posts">You don\'t have any posts.</string>
 </resources>

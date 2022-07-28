@@ -118,6 +118,20 @@
             android:textColor="@color/black"
             android:textStyle="bold" />
 
+        <TextView
+            android:id="@+id/txt_my_posts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/montserrat_light"
+            android:maxLines="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="@string/your_posts"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
     </LinearLayout>
 
     <View
