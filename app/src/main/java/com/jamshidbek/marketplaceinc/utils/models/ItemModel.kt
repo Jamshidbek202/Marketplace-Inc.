@@ -1,6 +1,8 @@
 package com.jamshidbek.marketplaceinc.utils.models
 
-class ItemModel {
+import java.io.Serializable
+
+class ItemModel : Serializable{
 
     var userUID : String = ""
     var itemSeller : String = ""

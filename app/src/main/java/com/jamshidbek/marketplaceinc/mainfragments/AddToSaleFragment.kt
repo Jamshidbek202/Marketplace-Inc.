@@ -18,6 +18,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.SetOptions
 import com.google.firebase.storage.FirebaseStorage
 import com.jamshidbek.marketplaceinc.R
 import com.jamshidbek.marketplaceinc.databinding.FragmentAddToSaleBinding
@@ -87,7 +88,7 @@ class AddToSaleFragment : Fragment() {
                 val city = binding.actCity.text.toString()
                 val phone = binding.edtItemPhone.text.toString()
 
-                if(binding.actCurrency.text.toString() == "" || name == "" || desc == "" || category == "Choose your category:" || price == "" || city == "Choose your city:" || phone == "" ){
+                if(binding.actCurrency.text.toString() == "" || name == "" || desc == "" || category == "" || price == "" || city == "" || phone == "" ){
                     Toast.makeText(context, "Fill in the info!", Toast.LENGTH_SHORT).show()
                     dialog.dismiss()
                 } else {
@@ -110,8 +111,8 @@ class AddToSaleFragment : Fragment() {
                                 } else {
                                     val model = ItemModel(UserUID.user_uid, seller, name, path, desc, category, price, currency, city, phone)
                                     val db = FirebaseFirestore.getInstance()
-                                    db.collection("OnSale").document(name).set(model)
-                                    db.collection("Users").document(UserUID.user_uid).collection("UsersProducts").document(name).set(model)
+                                    db.collection("OnSale").document(name).set(model, SetOptions.merge())
+                                    db.collection("Users").document(UserUID.user_uid).collection("UsersProducts").document(name).set(model, SetOptions.merge())
                                     Toast.makeText(context, "Product added!", Toast.LENGTH_SHORT).show()
                                     dialog.dismiss()
 
@@ -119,10 +120,10 @@ class AddToSaleFragment : Fragment() {
                                     binding.imgAddPicture.setImageResource(R.drawable.ic_add_image)
                                     binding.edtItemName.setText("")
                                     binding.edtItemDesc.setText("")
-                                    binding.edtCategory.setText(R.string.choose_your_category)
+                                    binding.edtCategory.setText("")
                                     binding.edtItemPrice.setText("")
                                     binding.actCurrency.setText("")
-                                    binding.actCity.setText(R.string.choose_your_city)
+                                    binding.actCity.setText("")
                                     binding.edtItemPhone.setText("")
                                 }
                             }

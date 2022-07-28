@@ -46,11 +46,11 @@ class OnSaleFragment : Fragment() {
                     for (dc : DocumentChange in value?.documentChanges!!){
                         if (dc.type == DocumentChange.Type.ADDED){
                             productList.add(dc.document.toObject(ItemModel::class.java))
-                            val adapter = OnSaleRecyclerAdapter(productList, container?.context!!)
-                            products_recycler.adapter = adapter
                         }
                     }
 
+                    val adapter = OnSaleRecyclerAdapter(productList, container?.context!!)
+                    products_recycler.adapter = adapter
                 }
             }
         })

@@ -53,5 +53,10 @@
         android:name="com.jamshidbek.marketplaceinc.mainfragments.EditProfileFragment"
         android:label="fragment_edit_profile"
         tools:layout="@layout/fragment_edit_profile" />
+    <fragment
+        android:id="@+id/itemFragment"
+        android:name="com.jamshidbek.marketplaceinc.mainfragments.ItemFragment"
+        android:label="fragment_item"
+        tools:layout="@layout/fragment_item" />
 
 </navigation>

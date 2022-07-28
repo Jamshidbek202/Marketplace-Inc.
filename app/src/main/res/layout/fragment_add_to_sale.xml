@@ -98,6 +98,10 @@
             android:elevation="@dimen/_5sdp"
             app:backgroundTint="@color/white"
             app:boxBackgroundColor="@color/white"
+            app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+            app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+            app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+            app:boxCornerRadiusTopStart="@dimen/_10sdp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/edt_item_desc">
@@ -107,8 +111,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_light"
+                android:hint="@string/choose_your_category"
                 android:inputType="none"
-                android:text="@string/choose_your_category"
                 android:textSize="@dimen/_10ssp"
                 android:textStyle="bold" />
 
@@ -150,19 +154,24 @@
                 android:layout_marginRight="@dimen/_30sdp"
                 android:layout_marginBottom="@dimen/_2sdp"
                 android:layout_weight="1"
+                android:backgroundTint="@color/white"
                 android:elevation="@dimen/_5sdp"
                 app:backgroundTint="@color/white"
-                app:boxBackgroundColor="@color/white">
+                app:boxBackgroundColor="@color/white"
+                app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+                app:boxCornerRadiusTopStart="@dimen/_10sdp">
 
                 <AutoCompleteTextView
                     android:id="@+id/act_currency"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_light"
                     android:inputType="none"
                     android:textColor="@color/black"
-                    android:fontFamily="@font/montserrat_light"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/_10ssp"/>
+                    android:textSize="@dimen/_10ssp"
+                    android:textStyle="bold" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -193,6 +202,10 @@
             android:elevation="@dimen/_5sdp"
             app:backgroundTint="@color/white"
             app:boxBackgroundColor="@color/white"
+            app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+            app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+            app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+            app:boxCornerRadiusTopStart="@dimen/_10sdp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/edt_item_phone">
@@ -202,8 +215,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_light"
+                android:hint="@string/choose_your_city"
                 android:inputType="none"
-                android:text="@string/choose_your_city"
                 android:textSize="@dimen/_10ssp"
                 android:textStyle="bold" />
 

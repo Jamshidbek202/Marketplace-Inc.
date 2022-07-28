@@ -1,11 +1,15 @@
 package com.jamshidbek.marketplaceinc.utils.adapters
 
 import android.content.Context
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
+import androidx.navigation.NavOptions
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.google.firebase.firestore.DocumentSnapshot
 import com.jamshidbek.marketplaceinc.R
 import com.jamshidbek.marketplaceinc.databinding.SaleItemLayoutBinding
 import com.jamshidbek.marketplaceinc.utils.models.ItemModel
@@ -32,6 +36,24 @@ class OnSaleRecyclerAdapter(
             .placeholder(R.drawable.ic_add_image)
             .error(R.drawable.ic_add_image)
             .into(holder.binding.imgItemImage)
+
+        holder.itemView.setOnClickListener {
+            val navOption = NavOptions.Builder()
+            navOption.setEnterAnim(R.anim.enter_anim)
+            navOption.setPopExitAnim(R.anim.exit_anim)
+            val bundle = Bundle()
+            bundle.putString("name", productList[position].itemName)
+            bundle.putString("imgUrl", productList[position].itemImgUrl)
+            bundle.putString("category", productList[position].itemCategory)
+            bundle.putString("desc", productList[position].itemDesc)
+            bundle.putString("seller", productList[position].itemSeller)
+            bundle.putString("city", productList[position].itemCity)
+            bundle.putString("phone", productList[position].itemPhone)
+            bundle.putString("price", productList[position].itemPrice)
+            bundle.putString("currency", productList[position].itemCurrency)
+
+            holder.itemView.findNavController().navigate(R.id.itemFragment, bundle, navOption.build())
+        }
     }
 
     override fun getItemCount() = productList.size
